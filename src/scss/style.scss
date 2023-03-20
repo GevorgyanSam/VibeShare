@@ -1,5 +1,5 @@
-@import "./components/reset.scss";
 @import "./components/variables.scss";
+@import "./components/reset.scss";
 
 
 
@@ -82,8 +82,10 @@
                 height: 50px;
                 width: 100%;
                 border-bottom: 1px solid var(--primary-color);
+                margin-top: 15px;
 
                 input {
+                    text-transform: none;
                     height: 100%;
                     width: 100%;
                     border: none;
@@ -113,9 +115,7 @@
             }
 
             .errorParent {
-                margin-bottom: 10px;
-                margin-left: 5px;
-                margin-top: 5px;
+                margin: 5px 0 5px 5px;
 
                 label.error {
                     color: red;
@@ -127,6 +127,7 @@
             }
 
             .rememberParent {
+                margin-top: 30px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -193,6 +194,26 @@
                     letter-spacing: 1px;
                     font-weight: 400;
                     font-size: 16px;
+
+                    &:hover span::before {
+                        width: 105%;
+                    }
+
+                    span {
+                        padding-bottom: 2px;
+                        position: relative;
+
+                        &::before {
+                            transition: var(--transition);
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            left: -2.5%;
+                            height: 1px;
+                            width: 0;
+                            background-color: var(--primary-color);
+                        }
+                    }
                 }
             }
         }
