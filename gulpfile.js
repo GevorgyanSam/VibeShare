@@ -9,7 +9,6 @@ import {deleteAsync} from "del";
 import uglify from "gulp-uglify";
 import transform from "gulp-es6-module-jstransform";
 import babel from "gulp-babel";
-import imagemin from "gulp-imagemin";
 
 const sass = gulpSass(dartSass);
 
@@ -55,7 +54,6 @@ async function htmls() {
 async function img() {
 
     return gulp.src("./src/img/*")
-        .pipe(imagemin())
         .pipe(gulp.dest("./build/img/"))
 
 }

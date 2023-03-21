@@ -1,6 +1,6 @@
 {
   "name": "vibeshare",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "VibeShare - Обмен Впечатлениями",
   "main": "script.js",
   "scripts": {
@@ -23,7 +23,6 @@
     "gulp-concat": "^2.6.1",
     "gulp-es6-module-jstransform": "^0.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
-    "gulp-imagemin": "^8.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.59.3"

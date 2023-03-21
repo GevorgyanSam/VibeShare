@@ -101,16 +101,35 @@
                     &::placeholder {
                         color: var(--primary-color);
                     }
+
+                    &::selection {
+                        background-color: transparent;
+                    }
+                }
+
+                #password {
+                    padding-right: 62px;
                 }
 
                 i {
-                    color: var(--primary-color);
-                    left: 20px;
                     top: 50%;
                     transform: translateY(-50%);
-                    font-size: 23px;
-                    pointer-events: none;
+                    color: var(--primary-color);
                     position: absolute;
+                    font-size: 23px;
+                }
+
+                .inputIcon {
+                    left: 20px;
+                    pointer-events: none;
+                }
+
+                .passwordView {
+                    display: none;
+                    right: 20px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: none;
                 }
             }
 
