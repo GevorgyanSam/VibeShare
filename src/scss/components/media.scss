@@ -250,7 +250,7 @@
                         }
                     }
 
-                    .forgotParent {
+                    .forgotParent a {
                         font-size: 15px !important;
                     }
                 }
@@ -332,8 +332,6 @@
                 }
 
                 .rememberParent {
-                    flex-direction: column !important;
-                    align-items: flex-start !important;
                     margin-left: 10px !important;
                     margin-top: 20px !important;
 
@@ -350,7 +348,7 @@
                         }
                     }
 
-                    .forgotParent {
+                    .forgotParent a {
                         margin-top: 3px !important;
                         font-size: 14px !important;
                     }
@@ -378,6 +376,102 @@
 
 }
 
+@media only screen and (max-width: 400px) {
+
+    .mainParent {
+
+        .formParent {
+
+            form {
+                padding: 0 20px !important;
+
+                .loginParent, .passwordParent {
+                    margin-top: 7px !important;
+                    height: 45px !important;
+
+                    input {
+                        font-size: 17px !important;
+                        padding-left: 45px !important;
+                    }
+
+                    #password {
+                        padding-right: 57px !important;
+                    }
+
+                    i {
+                        font-size: 17px !important;
+                    }
+    
+                    .passwordView {
+                        font-size: 15px !important;
+                    }
+
+                    .inputIcon {
+                        left: 14px !important;
+                    }
+                }
+
+                .errorParent {
+
+                    label.error {
+                        font-size: 13px !important;
+                    }
+                }
+
+                .rememberParent {
+
+                    .rememberMe {
+
+                        input {
+                            height: 13px !important;
+                            width: 13px !important;
+                        }
+            
+                        label {
+                            font-size: 13px !important;
+                        }
+                    }
+            
+                    .forgotParent {
+                        display: none !important;
+
+                        a {
+                            margin-top: 3px !important;
+                            font-size: 13px !important;
+                        }
+                    }
+                }
+
+                .submitParent {
+
+                    button {
+                        margin-top: 12px !important;
+                        height: 45px !important;
+                        font-size: 16px !important;
+                    }
+                }
+
+                .registrationParent {
+                    margin-top: 12px !important;
+
+                    a {
+                        font-size: 13px !important;
+                    }
+                }
+
+                .mobileForgotParent {
+                    display: block !important;
+
+                    a {
+                        font-size: 13px !important;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
 @media only screen and (max-width: 320px) {
 
     .navParent {
@@ -397,82 +491,7 @@
             }
 
             form {
-                padding: 0 20px !important;
-                
-                .loginParent, .passwordParent {
-                    margin-top: 10px !important;
-                    height: 45px !important;
-
-                    input {
-                        font-size: 17px !important;
-                        padding-left: 48px !important;
-                    }
-
-                    #password {
-                        padding-right: 60px !important;
-                    }
-
-                    i {
-                        font-size: 17px !important;
-                    }
-    
-                    .passwordView {
-                        font-size: 16px !important;
-                    }
-
-                    .inputIcon {
-                        left: 15px !important;
-                    }
-                }
-
-                .errorParent {
-
-                    label.error {
-                        font-size: 13px !important;
-                    }
-                }
-
-                .rememberParent {
-                    flex-direction: column !important;
-                    align-items: flex-start !important;
-                    margin-left: 10px !important;
-                    margin-top: 20px !important;
-
-                    .rememberMe {
-
-                        input {
-                            height: 14px !important;
-                            width: 14px !important;
-                            margin-left: 0 !important;
-                        }
-
-                        label {
-                            font-size: 13px !important;
-                        }
-                    }
-
-                    .forgotParent {
-                        margin-top: 3px !important;
-                        font-size: 13px !important;
-                    }
-                }
-
-                .submitParent {
-
-                    button {
-                        margin-top: 13px !important;
-                        height: 45px !important;
-                        font-size: 16px !important;
-                    }
-                }
-
-                .registrationParent {
-                    margin-top: 13px !important;
-
-                    a {
-                        font-size: 13px !important;
-                    }
-                }
+                padding: 0 15px !important;
             }
         }
     }
