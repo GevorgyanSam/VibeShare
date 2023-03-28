@@ -14,7 +14,7 @@ const sass = gulpSass(dartSass);
 
 async function styles() {
 
-    return gulp.src("./src/scss/style.scss")
+    return gulp.src("./src/scss/*.scss")
         .pipe(sass().on("error", sass.logError))
         .pipe(gcmq())
         .pipe(autoPrefixer({
@@ -24,14 +24,13 @@ async function styles() {
         .pipe(cleanCSS({
             level: 2
         }))
-        .pipe(concat("style.css"))
         .pipe(gulp.dest("./build/css/"))
 
 }
 
 async function scripts() {
 
-    return gulp.src("./src/js/script.js")
+    return gulp.src("./src/js/*.js")
         .pipe(babel({
             presets: ["@babel/env"]
         }))
@@ -39,7 +38,6 @@ async function scripts() {
         .pipe(uglify({
             toplevel: true
         }))
-        .pipe(concat("script.js"))
         .pipe(gulp.dest("./build/js/"))
 
 }
@@ -68,7 +66,7 @@ async function watch() {
 
     gulp.watch("./src/*.html", htmls);
     gulp.watch("./src/scss/**/*.scss", styles);
-    gulp.watch("./src/js/script.js", scripts);
+    gulp.watch("./src/js/*.js", scripts);
 
 }
 

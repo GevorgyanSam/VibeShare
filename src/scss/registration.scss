@@ -1,0 +1,94 @@
+@import "./components/variables.scss";
+@import "./components/reset.scss";
+
+
+
+// ----- ------ ---------- ----- ------ 
+// ----- ------ Navigation ----- ------
+// ----- ------ ---------- ----- ------
+
+
+
+.navParent {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    z-index: 99999999;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+
+    .logoParent .logo a {
+        margin-left: 30px;
+        color: var(--primary-color);
+        font-size: 35px;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-family: var(--font-family);
+    }
+}
+
+
+
+// ----- ----- ---- ----- ----- -----
+// ----- ----- Main Login ----- -----
+// ----- ----- ---- ----- ----- -----
+
+
+
+.mainParent {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    > div {
+        height: 100%;
+        width: 50%;
+    }
+
+    .imgParent {
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("../img/registration.jpg");
+    }
+
+    .formParent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: start;
+
+        h2 {
+            color: var(--primary-color);
+            font-weight: 400;
+            font-size: 50px;
+            letter-spacing: 1px;
+            font-family: var(--font-family);
+            text-align: center;
+        }
+
+        form {
+            
+            .formParent {
+                display: grid;
+            }
+        }
+    }
+}
+
+
+
+// ----- ------ ------------- ----- ------ 
+// ----- ------ Media Queries ----- ------
+// ----- ------ ------------- ----- ------
+
+
+
+@import "./components/registration-media.scss";
