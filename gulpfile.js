@@ -42,9 +42,9 @@ async function scripts() {
 
 }
 
-async function htmls() {
+async function pages() {
 
-    return gulp.src("./src/*.html")
+    return gulp.src("./src/*.php")
         .pipe(gulp.dest("./build/"))
 
 }
@@ -58,18 +58,18 @@ async function img() {
 
 async function clean() {
 
-    return deleteAsync(["./build/*.html", "./build/css/", "./build/js/"])
+    return deleteAsync(["./build/*.php", "./build/css/", "./build/js/"])
 
 }
 
 async function watch() {
 
-    gulp.watch("./src/*.html", htmls);
+    gulp.watch("./src/*.php", pages);
     gulp.watch("./src/scss/**/*.scss", styles);
     gulp.watch("./src/js/*.js", scripts);
 
 }
 
 gulp.task("watch", watch);
-gulp.task("build", gulp.series(clean, gulp.parallel(htmls, styles, scripts, img)));
+gulp.task("build", gulp.series(clean, gulp.parallel(pages, styles, scripts, img)));
 gulp.task("dev", gulp.series("build", "watch"));

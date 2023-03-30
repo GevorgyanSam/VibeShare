@@ -78,6 +78,118 @@
             
             .formParent {
                 display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                gap: 35px;
+                margin-top: 60px;
+
+                .formItem {
+                    margin-top: -30px;
+
+                    .dateParent {
+                        height: 45px;
+                        width: 300px;
+                        position: relative;
+                        border-bottom: 1px solid var(--primary-color);
+
+                        input {
+                            background-color: transparent;
+                            height: 100%;
+                            width: 100%;
+                            outline: none;
+                            border: none;
+                            font-size: 20px;
+                            color: var(--primary-color);
+                            font-family: var(--font-family);
+                            padding-left: 50px;
+                            padding-right: 5px;
+                            letter-spacing: 1px;
+                            font-weight: 400;
+                            text-transform: none;
+
+                            &::placeholder {
+                                color: var(--primary-color);
+                            }
+                        }
+
+                        i {
+                            font-size: 21px;
+                            position: absolute;
+                            color: var(--primary-color);
+                            left: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            pointer-events: none;
+                        }
+                    }
+
+                    .errorParent {
+                        margin-left: 5px;
+                        height: 25px;
+
+                        .error {
+                            color: red;
+                            pointer-events: none;
+                            font-family: var(--font-family);
+                            letter-spacing: 1px;
+                            font-weight: 400;
+                            font-size: 15px;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+
+                .submitParent {
+                    grid-column: 1 / span 2;
+
+                    button {
+                        width: 100%;
+                        height: 50px;
+                        font-family: var(--font-family);
+                        letter-spacing: 1px;
+                        font-weight: 400;
+                        border: none;
+                        font-size: 22px;
+                        border-radius: var(--border-radius);
+                        cursor: pointer;
+                        color: white;
+                        background-color: var(--primary-color);
+                    }
+                }
+            }
+
+            .loginParent {
+                margin-top: 5px;
+                margin-left: 5px;
+
+                a {
+                    text-transform: capitalize;
+                    color: var(--primary-color);
+                    font-family: var(--font-family);
+                    letter-spacing: 1px;
+                    font-weight: 400;
+                    font-size: 16px;
+
+                    &:hover span::before {
+                        width: 105%;
+                    }
+
+                    span {
+                        padding-bottom: 2px;
+                        position: relative;
+
+                        &::before {
+                            transition: var(--transition);
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            left: -2.5%;
+                            height: 1px;
+                            width: 0;
+                            background-color: var(--primary-color);
+                        }
+                    }
+                }
             }
         }
     }

@@ -26,7 +26,7 @@
             <div class="navParent">
                 <div class="logoParent">
                     <div class="logo">
-                        <a href="./index.html">VibeShare</a>
+                        <a href="./index.php">VibeShare</a>
                     </div>
                 </div>
             </div>
@@ -67,17 +67,17 @@
                                 <label for="checkbox">Remember Me</label>
                             </div>
                             <div class="forgotParent">
-                                <a href="./index.html">Forgot Your Password ?</a>
+                                <a href="./index.php">Forgot Your Password ?</a>
                             </div>
                         </div>
                         <div class="submitParent">
                             <button type="submit">Login</button>
                         </div>
                         <div class="registrationParent">
-                            <a href="./registration.html">don't have an account ? <span>register</span></a>
+                            <a href="./registration.php">don't have an account ? <span>register</span></a>
                         </div>
                         <div class="mobileForgotParent">
-                            <a href="./index.html">Forgot Your Password ?</a>
+                            <a href="./index.php">Forgot Your Password ?</a>
                         </div>
                     </form>
                 </div>
