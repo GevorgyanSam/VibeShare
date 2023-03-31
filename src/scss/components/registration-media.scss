@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1700px) {
+
+    .mainParent {
+
+        .imgParent {
+            width: 45% !important;
+        }
+
+        .contentParent {
+            width: 55% !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    .mainParent {
+
+        .imgParent {
+            width: 40% !important;
+        }
+
+        .contentParent {
+            width: 60% !important;
+        }
+    }
+
+}

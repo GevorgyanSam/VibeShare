@@ -45,7 +45,7 @@
             <div class="formParent">
                 <div>
                     <h2>Login</h2>
-                    <form autocomplete="off" method="POST">
+                    <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="loginParent">
                             <i class="fa-solid fa-user inputIcon"></i>
                             <input type="text" id="login" placeholder="Login">

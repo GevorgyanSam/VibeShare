@@ -42,10 +42,10 @@
     <main>
         <div class="mainParent">
             <div class="imgParent"></div>
-            <div class="formParent">
-                <div>
+            <div class="contentParent">
+                <div class="firstStep">
                     <h2>Registration</h2>
-                    <form autocomplete="off" method="POST">
+                    <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="formParent">
                             <div class="formItem">
                                 <div class="dateParent">
@@ -86,7 +86,8 @@
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-lock"></i>
-                                    <input type="password" placeholder="Password">
+                                    <input type="password" id="password" placeholder="Password">
+                                    <i class="fa-solid fa-eye-slash"></i>
                                 </div>
                                 <div class="errorParent">
                                     <label class="error"></label>
@@ -95,7 +96,8 @@
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-key"></i>
-                                    <input type="password" placeholder="Confirm Password">
+                                    <input type="password" id="cpassword" placeholder="Confirm Password">
+                                    <i class="fa-solid fa-eye-slash"></i>
                                 </div>
                                 <div class="errorParent">
                                     <label class="error"></label>
