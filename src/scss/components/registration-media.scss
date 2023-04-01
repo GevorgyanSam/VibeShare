@@ -27,3 +27,382 @@
     }
 
 }
+
+@media only screen and (max-width: 1400px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+
+                h2 {
+                    font-size: 45px !important;
+                }
+
+                form {
+
+                    .formParent {
+                        gap: 32px !important;
+
+                        .formItem {
+
+                            .dateParent {
+                                width: 280px !important;
+
+                                input {
+                                    font-size: 18px !important;
+                                    padding-left: 45px !important;
+                                }
+
+                                #password, #cpassword {
+                                    padding-right: 45px !important;
+                                }
+
+                                i {
+                                    font-size: 19px !important;
+                                }
+
+                                #password + i,
+                                #cpassword + i {
+                                    font-size: 16px !important;
+                                }
+                            }
+
+                            .errorParent {
+                                margin-top: 2px !important;
+
+                                .error {
+                                    font-size: 14px !important;
+                                }
+                            }
+                        }
+
+                        .submitParent {
+
+                            button {
+                                height: 45px !important;
+                                font-size: 20px !important;
+                            }
+                        }
+                    }
+
+                    .loginParent {
+                        margin-top: 0 !important;
+
+                        a {
+                            font-size: 15px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1300px) {
+
+    .mainParent {
+        background-color: rgb(232 239 250) !important;
+
+        .imgParent {
+            display: none !important;
+        }
+
+        .contentParent {
+            width: 100% !important;
+
+            .firstStep {
+
+                h2 {
+                    font-size: 50px !important;
+                }
+
+                form {
+
+                    .formParent {
+                        gap: 35px !important;
+
+                        .formItem {
+
+                            .dateParent {
+                                width: 300px !important;
+
+                                input {
+                                    font-size: 20px !important;
+                                    padding-left: 50px !important;
+                                }
+
+                                #password, #cpassword {
+                                    padding-right: 50px !important;
+                                }
+
+                                i {
+                                    font-size: 21px !important;
+                                }
+
+                                #password + i,
+                                #cpassword + i {
+                                    font-size: 18px !important;
+                                }
+                            }
+
+                            .errorParent {
+                                margin-top: 0 !important;
+
+                                .error {
+                                    font-size: 15px !important;
+                                }
+                            }
+                        }
+
+                        .submitParent {
+
+                            button {
+                                height: 50px !important;
+                                font-size: 22px !important;
+                            }
+                        }
+                    }
+
+                    .loginParent {
+                        margin-top: 5px !important;
+
+                        a {
+                            font-size: 16px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+
+                h2 {
+                    font-size: 45px !important;
+                }
+
+                form {
+
+                    .formParent {
+                        gap: 32px !important;
+
+                        .formItem {
+
+                            .dateParent {
+                                width: 280px !important;
+
+                                input {
+                                    font-size: 18px !important;
+                                    padding-left: 45px !important;
+                                }
+
+                                #password, #cpassword {
+                                    padding-right: 45px !important;
+                                }
+
+                                i {
+                                    font-size: 19px !important;
+                                }
+
+                                #password + i,
+                                #cpassword + i {
+                                    font-size: 16px !important;
+                                }
+                            }
+
+                            .errorParent {
+                                margin-top: 2px !important;
+
+                                .error {
+                                    font-size: 14px !important;
+                                }
+                            }
+                        }
+
+                        .submitParent {
+
+                            button {
+                                height: 45px !important;
+                                font-size: 20px !important;
+                            }
+                        }
+                    }
+
+                    .loginParent {
+                        margin-top: 0 !important;
+
+                        a {
+                            font-size: 15px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+
+                h2 {
+                    font-size: 40px !important;
+                }
+
+                form {
+
+                    .formParent {
+                        gap: 30px !important;
+
+                        .formItem {
+
+                            .dateParent {
+                                width: 260px !important;
+
+                                input {
+                                    font-size: 17px !important;
+                                    padding-left: 43px !important;
+                                }
+
+                                #password, #cpassword {
+                                    padding-right: 43px !important;
+                                }
+
+                                i {
+                                    font-size: 18px !important;
+                                }
+
+                                #password + i,
+                                #cpassword + i {
+                                    font-size: 15px !important;
+                                }
+                            }
+
+                            .errorParent {
+                                margin-top: 1px !important;
+
+                                .error {
+                                    font-size: 13px !important;
+                                }
+                            }
+                        }
+
+                        .submitParent {
+
+                            button {
+                                height: 45px !important;
+                                font-size: 19px !important;
+                            }
+                        }
+                    }
+
+                    .loginParent {
+                        margin-top: 0 !important;
+
+                        a {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+    .navParent {
+        height: 60px !important;
+
+        .logoParent .logo a {
+            font-size: 30px !important;
+        }
+    }
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+
+                h2 {
+                    font-size: 40px !important;
+                }
+
+                form {
+
+                    .formParent {
+                        gap: 25px !important;
+
+                        .formItem {
+
+                            .dateParent {
+                                width: 240px !important;
+
+                                input {
+                                    font-size: 16px !important;
+                                    padding-left: 42px !important;
+                                }
+
+                                #password, #cpassword {
+                                    padding-right: 42px !important;
+                                }
+
+                                i {
+                                    font-size: 17px !important;
+                                }
+
+                                #password + i,
+                                #cpassword + i {
+                                    font-size: 14px !important;
+                                }
+                            }
+
+                            .errorParent {
+                                margin-top: 1px !important;
+
+                                .error {
+                                    font-size: 12px !important;
+                                }
+                            }
+                        }
+
+                        .submitParent {
+
+                            button {
+                                height: 45px !important;
+                                font-size: 18px !important;
+                            }
+                        }
+                    }
+
+                    .loginParent {
+                        margin-top: 0 !important;
+
+                        a {
+                            font-size: 13px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

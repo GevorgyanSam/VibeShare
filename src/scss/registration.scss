@@ -112,6 +112,10 @@
                                 &::placeholder {
                                     color: var(--primary-color);
                                 }
+                                
+                                &::selection {
+                                    background-color: transparent;
+                                }
                             }
     
                             i {
