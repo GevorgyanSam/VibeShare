@@ -43,7 +43,7 @@
         <div class="mainParent">
             <div class="imgParent"></div>
             <div class="contentParent">
-                <div class="firstStep">
+                <!-- <div class="firstStep">
                     <h2>Registration</h2>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="formParent">
@@ -109,6 +109,27 @@
                         </div>
                         <div class="loginParent">
                             <a href="./index.php">already have an account ? <span>login</span></a>
+                        </div>
+                    </form>
+                </div> -->
+                <div class="secondStep">
+                    <h2>Email Verifictaion</h2>
+                    <h3>enter the verification code we send to <br> <span>test@gmail.com</span></h3>
+                    <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
+                        <div class="formParent">
+                            <div class="formItem">
+                                <div class="dateParent">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="number" placeholder="type code here">
+                                </div>
+                                <div class="errorParent">
+                                    <label class="error"></label>
+                                </div>
+                            </div>
+                            <div class="formItem submitParent">
+                                <button type="submit">verify</button>
+                                <p>didn't get the code ? <span>resend</span></p>
+                            </div>
                         </div>
                     </form>
                 </div>
