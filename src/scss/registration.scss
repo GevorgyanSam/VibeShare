@@ -335,34 +335,38 @@
                             background-color: var(--primary-color);
                         }
 
-                        p {
-                            cursor: pointer;
+                        .resend {
                             margin-top: 10px;
-                            margin-left: 5px;
-                            text-transform: capitalize;
-                            color: var(--primary-color);
-                            font-family: var(--font-family);
-                            letter-spacing: 1px;
-                            font-weight: 400;
-                            font-size: 16px;
-        
-                            &:hover span::before {
-                                width: 105%;
-                            }
 
-                            span {
-                                padding-bottom: 2px;
-                                position: relative;
+                            a {
+                                cursor: pointer;
+                                margin-top: 10px;
+                                margin-left: 5px;
+                                text-transform: capitalize;
+                                color: var(--primary-color);
+                                font-family: var(--font-family);
+                                letter-spacing: 1px;
+                                font-weight: 400;
+                                font-size: 16px;
+            
+                                &:hover span::before {
+                                    width: 105%;
+                                }
 
-                                &::before {
-                                    transition: var(--transition);
-                                    content: "";
-                                    position: absolute;
-                                    bottom: 0;
-                                    left: -2.5%;
-                                    height: 1px;
-                                    width: 0;
-                                    background-color: var(--primary-color);
+                                span {
+                                    padding-bottom: 2px;
+                                    position: relative;
+
+                                    &::before {
+                                        transition: var(--transition);
+                                        content: "";
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: -2.5%;
+                                        height: 1px;
+                                        width: 0;
+                                        background-color: var(--primary-color);
+                                    }
                                 }
                             }
                         }
