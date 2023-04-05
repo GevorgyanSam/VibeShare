@@ -1,0 +1,429 @@
+@media only screen and (max-width: 1700px) {
+
+    .mainParent {
+
+        .imgParent {
+            width: 45% !important;
+        }
+
+        .contentParent {
+            width: 55% !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    .mainParent {
+
+        .imgParent {
+            width: 40% !important;
+        }
+
+        .contentParent {
+            width: 60% !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1300px) {
+
+    .navParent {
+        background-color: rgb(232 239 250) !important;
+    }
+
+    .mainParent {
+        padding-top: 70px !important;
+        background-color: rgb(232 239 250) !important;
+
+        .imgParent {
+            display: none !important;
+        }
+
+        .contentParent {
+            margin-top: -70px !important;
+            width: 100% !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+
+                h2 {
+                    font-size: 47px !important;
+                }
+
+                h3 {
+                    font-size: 16px !important;
+                }
+
+                .formParent {
+
+                    .formItem {
+
+                        .dateParent {
+
+                            input {
+                                font-size: 21px !important;
+                            }
+
+                            i {
+                                font-size: 23px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+    .navParent {
+        height: 60px !important;
+
+        .logoParent .logo a {
+            font-size: 30px !important;
+        }
+    }
+
+    .mainParent {
+        padding-top: 60px !important;
+
+        .contentParent {
+            margin-top: -60px !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+
+                h2 {
+                    font-size: 45px !important;
+                }
+
+                h3 {
+                    font-size: 15px !important;
+                }
+
+                .formParent {
+
+                    .formItem {
+
+                        .dateParent {
+                            height: 47px !important;
+
+                            input {
+                                font-size: 20px !important;
+                            }
+
+                            i {
+                                font-size: 21px !important;
+                            }
+                        }
+
+                        .errorParent {
+                            margin-top: 5px !important;
+
+                            .error {
+                                font-size: 14px !important;
+                            }
+                        }
+                    }
+
+                    .submitParent {
+
+                        button {
+                            height: 47px !important;
+                            font-size: 20px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+
+    .navParent {
+
+        .logoParent .logo a {
+            font-size: 25px !important;
+        }
+    }
+
+    .mainParent {
+        padding-top: 0 !important;
+
+        .contentParent {
+            margin-top: 0 !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+                width: 100% !important;
+                padding: 0 30px !important;
+
+                h2 {
+                    font-size: 40px !important;
+                }
+
+                h3 {
+                    font-size: 14px !important;
+                }
+
+                .formParent {
+
+                    .formItem {
+
+                        .dateParent {
+                            height: 45px !important;
+
+                            input {
+                                font-size: 18px !important;
+                            }
+
+                            i {
+                                font-size: 19px !important;
+                            }
+                        }
+
+                        .errorParent {
+                            margin-top: 3px !important;
+
+                            .error {
+                                font-size: 13px !important;
+                            }
+                        }
+                    }
+
+                    .submitParent {
+
+                        button {
+                            height: 45px !important;
+                            font-size: 18px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+
+    .navParent {
+
+        .logoParent .logo a {
+            font-size: 23px !important;
+            margin-left: 25px !important;
+        }
+    }
+
+    .mainParent {
+        padding-top: 0 !important;
+
+        .contentParent {
+            margin-top: 0 !important;
+
+            .firstStep {
+                width: 100% !important;
+                padding: 0 25px !important;
+
+                h2 {
+                    font-size: 35px !important;
+                }
+
+                h3 {
+                    font-size: 14px !important;
+                }
+
+                .formParent {
+
+                    .formItem {
+
+                        .dateParent {
+                            height: 45px !important;
+
+                            input {
+                                font-size: 18px !important;
+                            }
+
+                            i {
+                                font-size: 18px !important;
+                            }
+                        }
+                    }
+
+                    .submitParent {
+
+                        button {
+                            height: 45px !important;
+                            font-size: 17px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    .navParent {
+
+        .logoParent .logo a {
+            font-size: 23px !important;
+            margin-left: 25px !important;
+        }
+    }
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+                padding: 0 20px !important;
+
+                h2 {
+                    font-size: 33px !important;
+                }
+
+                h3 {
+                    font-size: 13px !important;
+                }
+
+                .formParent {
+
+                    .formItem {
+
+                        .dateParent {
+                            height: 45px !important;
+
+                            input {
+                                font-size: 17px !important;
+                            }
+
+                            i {
+                                font-size: 17px !important;
+                            }
+                        }
+                    }
+
+                    .submitParent {
+
+                        button {
+                            height: 45px !important;
+                            font-size: 17px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 350px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+                padding: 0 15px !important;
+
+                h2 {
+                    font-size: 30px !important;
+                }
+
+                h3 {
+                    font-size: 12px !important;
+                }
+
+                .formParent {
+
+                    .formItem {
+
+                        .dateParent {
+
+                            input {
+                                font-size: 16px !important;
+                                padding-left: 40px !important;
+                            }
+
+                            i {
+                                font-size: 16px !important;
+                            }
+                        }
+                    }
+
+                    .submitParent {
+
+                        button {
+                            height: 45px !important;
+                            font-size: 16px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    .navParent {
+        height: 50px !important;
+
+        .logoParent .logo a {
+            font-size: 20px !important;
+            margin-left: 20px !important;
+        }
+    }
+
+    .mainParent {
+
+        .contentParent {
+
+            .firstStep {
+
+                h2 {
+                    font-size: 25px !important;
+                }
+            }
+        }
+    }
+
+}

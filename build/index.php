@@ -67,7 +67,7 @@
                                 <label for="checkbox">Remember Me</label>
                             </div>
                             <div class="forgotParent">
-                                <a href="./index.php">Forgot Your Password ?</a>
+                                <a href="./forgot.php">Forgot Your Password ?</a>
                             </div>
                         </div>
                         <div class="submitParent">
@@ -77,7 +77,7 @@
                             <a href="./registration.php">don't have an account ? <span>register</span></a>
                         </div>
                         <div class="mobileForgotParent">
-                            <a href="./index.php">Forgot Your Password ?</a>
+                            <a href="./forgot.php">Forgot Your Password ?</a>
                         </div>
                     </form>
                 </div>

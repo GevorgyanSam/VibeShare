@@ -1033,3 +1033,20 @@
     }
 
 }
+
+@media only screen and (max-width: 320px) {
+
+    .mainParent {
+
+        .contentParent {
+
+            .secondStep {
+
+                h2 {
+                    font-size: 25px !important;
+                }
+            }
+        }
+    }
+
+}
