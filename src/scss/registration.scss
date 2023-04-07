@@ -31,16 +31,16 @@
 
 
 
-// ----- ----- ---- ----- ----- -----
-// ----- ----- Main Login ----- -----
-// ----- ----- ---- ----- ----- -----
+// ----- ----- ---- ------------ ----- -----
+// ----- ----- Main Registration ----- -----
+// ----- ----- ---- ------------ ----- -----
 
 
 
 .mainParent {
     width: 100%;
     min-height: 100vh;
-    background-color: white;
+    background-color: var(--desktop-background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,7 +176,7 @@
                             font-size: 22px;
                             border-radius: var(--border-radius);
                             cursor: pointer;
-                            color: white;
+                            color: var(--desktop-background-color);
                             background-color: var(--primary-color);
                         }
                     }
@@ -331,7 +331,7 @@
                             font-size: 22px;
                             border-radius: var(--border-radius);
                             cursor: pointer;
-                            color: white;
+                            color: var(--desktop-background-color);
                             background-color: var(--primary-color);
                         }
 
@@ -379,9 +379,9 @@
 
 
 
-// ----- ------ ------------- ----- ------ 
+// ----- ------ ----- ------- ----- ------ 
 // ----- ------ Media Queries ----- ------
-// ----- ------ ------------- ----- ------
+// ----- ------ ----- ------- ----- ------
 
 
 

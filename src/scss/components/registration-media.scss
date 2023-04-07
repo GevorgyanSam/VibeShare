@@ -104,12 +104,12 @@
 @media only screen and (max-width: 1300px) {
 
     .navParent {
-        background-color: rgb(232 239 250) !important;
+        background-color: var(--mobile-background-color) !important;
     }
 
     .mainParent {
         padding-top: 70px !important;
-        background-color: rgb(232 239 250) !important;
+        background-color: var(--mobile-background-color) !important;
 
         .imgParent {
             display: none !important;
