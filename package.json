@@ -1,6 +1,6 @@
 {
   "name": "vibeshare",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "VibeShare - Обмен Впечатлениями",
   "main": "script.js",
   "scripts": {

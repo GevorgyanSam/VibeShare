@@ -63,7 +63,7 @@
                         </div>
                     </form>
                 </div> -->
-                <div class="secondStep">
+                <!-- <div class="secondStep">
                     <div class="profileParent">
                         <div class="userBackgroundParent" style="background-image: url(https://imgs.search.brave.com/wv9bhyYa5CjPXwNsGPW3NAGO95tX6iS11Kjb-3sUVk4/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/Z29vZGZyZWVwaG90/b3MuY29tL2FsYnVt/cy9jcm9hdGlhL3Bs/aXR2aWNlLWxha2Vz/LW5hdGlvbmFsLXBh/cmsvbGFrZS1sYW5k/c2NhcGUtdW5kZXIt/c2tpZXMtcGxpdHZp/Y2UtbGFrZS1uYXRp/b25hbC1wYXJrLWNy/b2F0aWEuanBn);"></div>
                         <div class="userLogoParent">
@@ -82,6 +82,29 @@
                             </form>
                         </div>
                     </div>
+                </div> -->
+                <div class="thirdStep">
+                    <h2>Email Verification</h2>
+                    <h3>enter the verification code we send to <br> <span>t**t@gmail.com</span></h3>
+                    <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
+                        <div class="formParent">
+                            <div class="formItem">
+                                <div class="dateParent">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="number" placeholder="type code here">
+                                </div>
+                                <div class="errorParent">
+                                    <label class="error"></label>
+                                </div>
+                            </div>
+                            <div class="formItem submitParent">
+                                <button type="submit">verify</button>
+                                <div class="resend">
+                                    <a href="./forgot.php">didn't get the code ? <span>resend</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
