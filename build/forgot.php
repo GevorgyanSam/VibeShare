@@ -1,3 +1,9 @@
+<?php
+
+    $Edit_State = 4;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +49,15 @@
         <div class="mainParent">
             <div class="imgParent"></div>
             <div class="contentParent">
-                <!-- <div class="firstStep">
+
+
+                            <!-- ----- ----- ---- ----- -->
+                            <!-- ----- First Step ----- -->
+                            <!-- ----- ----- ---- ----- -->
+
+
+                <?php if($Edit_State == 1): ?>
+                <div class="firstStep">
                     <h2>find your account</h2>
                     <h3>Please enter your login name or email to search for your account.</h3>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
@@ -62,8 +76,17 @@
                             </div>
                         </div>
                     </form>
-                </div> -->
-                <!-- <div class="secondStep">
+                </div>
+                <?php endif; ?>
+
+
+                            <!-- ----- ------ ---- ----- -->
+                            <!-- ----- Second Step ----- -->
+                            <!-- ----- ------ ---- ----- -->
+
+
+                <?php if($Edit_State == 2): ?>
+                <div class="secondStep">
                     <div class="profileParent">
                         <div class="userBackgroundParent" style="background-image: url(https://imgs.search.brave.com/wv9bhyYa5CjPXwNsGPW3NAGO95tX6iS11Kjb-3sUVk4/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/Z29vZGZyZWVwaG90/b3MuY29tL2FsYnVt/cy9jcm9hdGlhL3Bs/aXR2aWNlLWxha2Vz/LW5hdGlvbmFsLXBh/cmsvbGFrZS1sYW5k/c2NhcGUtdW5kZXIt/c2tpZXMtcGxpdHZp/Y2UtbGFrZS1uYXRp/b25hbC1wYXJrLWNy/b2F0aWEuanBn);"></div>
                         <div class="userLogoParent">
@@ -82,7 +105,16 @@
                             </form>
                         </div>
                     </div>
-                </div> -->
+                </div>
+                <?php endif; ?>
+
+
+                            <!-- ----- ----- ---- ----- -->
+                            <!-- ----- Third Step ----- -->
+                            <!-- ----- ----- ---- ----- -->
+
+
+                <?php if($Edit_State == 3): ?>
                 <div class="thirdStep">
                     <h2>Email Verification</h2>
                     <h3>enter the verification code we send to <br> <span>t**t@gmail.com</span></h3>
@@ -106,6 +138,47 @@
                         </div>
                     </form>
                 </div>
+                <?php endif; ?>
+
+
+                            <!-- ----- ----- ---- ----- -->
+                            <!-- ----- Fourth Step ----- -->
+                            <!-- ----- ----- ---- ----- -->
+
+
+                <?php if($Edit_State == 4): ?>
+                <div class="fourthStep">
+                    <h2>Change Password</h2>
+                    <h3>set the new password for your account</h3>
+                    <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
+                        <div class="formParent">
+                            <div class="formItem">
+                                <div class="dateParent">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <input type="password" id="password" placeholder="New Password">
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                </div>
+                                <div class="errorParent">
+                                    <label class="error"></label>
+                                </div>
+                            </div>
+                            <div class="formItem">
+                                <div class="dateParent">
+                                    <i class="fa-solid fa-key"></i>
+                                    <input type="password" id="cpassword" placeholder="Confirm Password">
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                </div>
+                                <div class="errorParent">
+                                    <label class="error"></label>
+                                </div>
+                            </div>
+                            <div class="formItem submitParent">
+                                <button type="submit">change password</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </main>

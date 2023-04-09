@@ -1,3 +1,9 @@
+<?php
+
+    $Edit_State = 1;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +49,14 @@
         <div class="mainParent">
             <div class="imgParent"></div>
             <div class="contentParent">
+
+
+                            <!-- ----- ----- ---- ----- -->
+                            <!-- ----- First Step ----- -->
+                            <!-- ----- ----- ---- ----- -->
+
+
+                <?php if($Edit_State == 1): ?>
                 <div class="firstStep">
                     <h2>Registration</h2>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
@@ -112,7 +126,16 @@
                         </div>
                     </form>
                 </div>
-                <!-- <div class="secondStep">
+                <?php endif; ?>
+
+
+                            <!-- ----- ------ ---- ----- -->
+                            <!-- ----- Second Step ----- -->
+                            <!-- ----- ------ ---- ----- -->
+
+
+                <?php if($Edit_State == 2): ?>
+                <div class="secondStep">
                     <h2>Email Verification</h2>
                     <h3>enter the verification code we send to <br> <span>test@gmail.com</span></h3>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
@@ -134,7 +157,8 @@
                             </div>
                         </div>
                     </form>
-                </div> -->
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </main>
