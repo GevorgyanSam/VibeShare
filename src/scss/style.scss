@@ -176,7 +176,10 @@
                     }
                 }
     
-                .forgotParent a {
+                .forgotParent button {
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
                     color: var(--primary-color);
                     font-weight: 400;
                     font-family: var(--font-family);
@@ -241,7 +244,10 @@
                 margin-left: 10px;
                 display: none;
 
-                a {
+                button {
+                    cursor: pointer;
+                    background-color: transparent;
+                    border: none;
                     text-transform: capitalize;
                     color: var(--primary-color);
                     font-family: var(--font-family);

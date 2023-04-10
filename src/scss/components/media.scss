@@ -254,7 +254,7 @@
                         }
                     }
 
-                    .forgotParent a {
+                    .forgotParent button {
                         font-size: 15px !important;
                     }
                 }
@@ -352,8 +352,7 @@
                         }
                     }
 
-                    .forgotParent a {
-                        margin-top: 3px !important;
+                    .forgotParent button {
                         font-size: 14px !important;
                     }
                 }
@@ -439,8 +438,7 @@
                     .forgotParent {
                         display: none !important;
 
-                        a {
-                            margin-top: 3px !important;
+                        button {
                             font-size: 13px !important;
                         }
                     }
@@ -466,7 +464,7 @@
                 .mobileForgotParent {
                     display: block !important;
 
-                    a {
+                    button {
                         font-size: 13px !important;
                     }
                 }
