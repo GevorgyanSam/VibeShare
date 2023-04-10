@@ -1,3 +1,6 @@
+<?php require("./components/error/error.php"); ?>
+<?php require("./components/connection/connection.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

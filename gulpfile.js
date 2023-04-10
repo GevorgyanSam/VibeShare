@@ -44,7 +44,7 @@ async function scripts() {
 
 async function pages() {
 
-    return gulp.src("./src/*.php")
+    return gulp.src("./src/**/**/*.php")
         .pipe(gulp.dest("./build/"))
 
 }
@@ -58,13 +58,13 @@ async function img() {
 
 async function clean() {
 
-    return deleteAsync(["./build/*.php", "./build/css/", "./build/js/"])
+    return deleteAsync(["./build/**/**/*.php", "./build/css/", "./build/js/"])
 
 }
 
 async function watch() {
 
-    gulp.watch("./src/*.php", pages);
+    gulp.watch("./src/**/**/*.php", pages);
     gulp.watch("./src/scss/**/*.scss", styles);
     gulp.watch("./src/js/*.js", scripts);
 
