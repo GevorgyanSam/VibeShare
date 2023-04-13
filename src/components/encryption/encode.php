@@ -49,4 +49,6 @@
 
     }
 
+    $Encode = new Encode();
+
 ?>

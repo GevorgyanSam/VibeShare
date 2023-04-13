@@ -1,11 +1,7 @@
 <?php require("./components/error/error.php"); ?>
 <?php require("./components/connection/connection.php"); ?>
-
-<?php
-
-    $Edit_State = 1;
-
-?>
+<?php require("./components/encryption/encode.php"); ?>
+<?php require("./components/segment/registration.php") ?>
 
 <!DOCTYPE html>
 <html lang="en">
