@@ -1,34 +1,51 @@
 <?php
 
-    // ---- -------- -- --- ---- ----------
-    // This Function Is For Data Encryption
-    // ---- -------- -- --- ---- ----------
+    class Encode {
 
-    $GLOBALS["Key"] = (16 + 14 * 15 / 2) * 10;
+        private $Key = (17 + 15 * 14) * 3;
 
-    function encrypt($Data) {
+        // ---- -------- -- --- ---- ----------
+        // This Function Is For Data Encryption
+        // ---- -------- -- --- ---- ----------
 
-        $Encrypted_Data = "";
+        public function encrypt($Data) {
 
-        for($i = 0; $i < strlen(utf8_decode($Data)); $i++) {
+            $Encrypted_Data = "";
 
-            $Encrypted_Data .= ord($Data[$i]) + $GLOBALS["Key"] . " ";
+            for($i = 0; $i < strlen($Data); $i++) {
+
+                $Encrypted_Data .= ord($Data[$i]) + $this->Key . "03 ";
+
+            }
+
+            return $Encrypted_Data;
 
         }
 
-        return $Encrypted_Data;
+        // ---- -------- -- --- ---- ----------
+        // This Function Is For Data Decryption
+        // ---- -------- -- --- ---- ----------
 
-    }
+        public function decrypt($Data) {
 
-    // ---- -------- -- --- ---- ----------
-    // This Function Is For Data Decryption
-    // ---- -------- -- --- ---- ----------
+            $Decrypted_Data = "";
+            $Count = substr_count($Data, " ");
 
-    function decrypt($Data) {
+            for($i = 0; $i < $Count; $i++) {
 
-        $Decrypted_Data = "";
+                $Current_Position = strpos($Data, " ");
+                $Current_Symbol = substr($Data, 0, $Current_Position + 1);
+                $Remove_Symbol = $Current_Symbol;
+                $Current_Symbol = substr($Current_Symbol, 0, 3) - $this->Key;
+                $Current_Symbol = chr($Current_Symbol);
+                $Decrypted_Data .= $Current_Symbol;
+                $Data = substr($Data, 6);
 
-        return $Decrypted_Data;
+            }
+
+            return $Decrypted_Data;
+
+        }
 
     }
 
