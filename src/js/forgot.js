@@ -48,4 +48,46 @@ $(document).ready(function() {
     passwordType(form.password.input, form.password.icon);
     passwordType(form.cpassword.input, form.cpassword.icon);
 
+    // ---- -------- -- --- --------- ------------ ----
+    // This Function Is For Resending Verification Code
+    // ---- -------- -- --- --------- ------------ ----
+
+    function resendCode() {
+
+        let awaitParent = $(".await");
+        let timer = $(".await span");
+        let resendParent = $(".resend button");
+        let Minutes = 1;
+        let Seconds = 59;
+        let editState = false;
+        let endState = false;
+
+        setInterval(() => {
+            if(editState) {
+                Minutes = 0;
+                Seconds = 59;
+                editState = false;
+            }
+            if(endState) {
+                awaitParent.css("display", "none");
+                resendParent.css("display", "block");
+                endState = false;
+            }
+            if(Minutes == "0" && Seconds == "00") {
+                endState = true;
+            }
+            if(Minutes == 1 && Seconds == "00") {
+                editState = true;
+            }
+            if(Seconds < 10) {
+                Seconds = "0" + Seconds;
+            }
+            timer.text("0" + Minutes + ":" + Seconds);
+            Seconds--;
+        }, 1000);
+
+    }
+
+    resendCode();
+
 })

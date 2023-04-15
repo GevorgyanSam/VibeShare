@@ -723,14 +723,14 @@
 
                     .submitParent {
 
-                        button {
+                        button[name=submit] {
                             height: 47px !important;
                             font-size: 20px !important;
                         }
 
-                        .resend {
+                        .resendParent {
 
-                            a {
+                            button[name=resend], .await {
                                 font-size: 15px !important;
                             }
                         }
@@ -787,14 +787,14 @@
 
                     .submitParent {
 
-                        button {
+                        button[name=submit] {
                             height: 45px !important;
                             font-size: 18px !important;
                         }
 
-                        .resend {
+                        .resendParent {
 
-                            a {
+                            button[name=resend], .await {
                                 font-size: 15px !important;
                             }
                         }
@@ -843,14 +843,14 @@
 
                     .submitParent {
 
-                        button {
+                        button[name=submit] {
                             height: 45px !important;
                             font-size: 17px !important;
                         }
 
-                        .resend {
+                        .resendParent {
 
-                            a {
+                            button[name=resend], .await {
                                 font-size: 14px !important;
                             }
                         }
@@ -898,14 +898,14 @@
 
                     .submitParent {
 
-                        button {
+                        button[name=submit] {
                             height: 45px !important;
                             font-size: 17px !important;
                         }
 
-                        .resend {
+                        .resendParent {
 
-                            a {
+                            button[name=resend], .await {
                                 font-size: 13px !important;
                             }
                         }
@@ -953,14 +953,14 @@
 
                     .submitParent {
 
-                        button {
+                        button[name=submit] {
                             height: 45px !important;
                             font-size: 16px !important;
                         }
 
-                        .resend {
+                        .resendParent {
 
-                            a {
+                            button[name=resend], .await {
                                 font-size: 13px !important;
                             }
                         }

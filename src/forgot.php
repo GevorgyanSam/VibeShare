@@ -129,9 +129,16 @@
                                 </div>
                             </div>
                             <div class="formItem submitParent">
-                                <button type="submit">verify</button>
-                                <div class="resend">
-                                    <a href="./forgot.php">didn't get the code ? <span>resend</span></a>
+                                <button type="submit" name="submit">verify</button>
+                                <div class="resendParent">
+                                    <div class="await">
+                                        Didn't Get The Code ? <span>02:00</span>
+                                    </div>
+                                    <div class="resend">
+                                        <button type="submit" name="resend">
+                                            didn't get the code ? <span>resend</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
