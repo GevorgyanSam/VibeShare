@@ -63,61 +63,61 @@
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-user"></i>
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" name="name" value="<?php echo($User->Name); ?>">
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($User->NameError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-user"></i>
-                                    <input type="text" placeholder="Last Name">
+                                    <input type="text" placeholder="Last Name" name="lastname" value="<?php echo($User->LastName); ?>">
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($User->LastNameError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-envelope"></i>
-                                    <input type="email" placeholder="Email">
+                                    <input type="email" placeholder="Email" name="email" value="<?php echo($User->Email); ?>">
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($User->EmailError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-user-tie"></i>
-                                    <input type="text" placeholder="Login">
+                                    <input type="text" placeholder="Login" name="login" value="<?php echo($User->Login); ?>">
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($User->LoginError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-lock"></i>
-                                    <input type="password" id="password" placeholder="Password">
+                                    <input type="password" id="password" placeholder="Password" name="password" value="<?php echo($User->Password); ?>">
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($User->PasswordError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-key"></i>
-                                    <input type="password" id="cpassword" placeholder="Confirm Password">
+                                    <input type="password" id="cpassword" placeholder="Confirm Password" name="cpassword" value="<?php echo($User->CPassword); ?>">
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($User->CPasswordError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem submitParent">
-                                <button type="submit">Register</button>
+                                <button type="submit" name="register">Register</button>
                             </div>
                         </div>
                         <div class="loginParent">
@@ -136,13 +136,13 @@
                 <?php if($Edit_State == 2): ?>
                 <div class="secondStep">
                     <h2>Email Verification</h2>
-                    <h3>enter the verification code we send to <br> <span>test@gmail.com</span></h3>
+                    <h3>enter the verification code we send to <br> <span><?php echo($_SESSION["Email_Address"]); ?></span></h3>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="formParent">
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-envelope"></i>
-                                    <input type="number" placeholder="type code here">
+                                    <input type="number" placeholder="type code here" name="code">
                                 </div>
                                 <div class="errorParent">
                                     <label class="error"></label>
