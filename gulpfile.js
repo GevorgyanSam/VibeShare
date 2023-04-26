@@ -1,5 +1,4 @@
 import gulp from "gulp";
-import concat from "gulp-concat";
 import gulpSass from "gulp-sass";
 import dartSass from "sass";
 import cleanCSS from "gulp-clean-css";
@@ -49,16 +48,16 @@ async function pages() {
 
 }
 
-async function img() {
+async function assets() {
 
-    return gulp.src("./src/img/*")
-        .pipe(gulp.dest("./build/img/"))
+    return gulp.src("./src/assets/*")
+        .pipe(gulp.dest("./build/assets/"))
 
 }
 
 async function clean() {
 
-    return deleteAsync(["./build/**/**/*.php", "./build/css/", "./build/js/"])
+    return deleteAsync(["./build/**/**/*.php", "./build/css/", "./build/js/", "./build/components/", "./build/assets/"])
 
 }
 
@@ -71,5 +70,5 @@ async function watch() {
 }
 
 gulp.task("watch", watch);
-gulp.task("build", gulp.series(clean, gulp.parallel(pages, styles, scripts, img)));
+gulp.task("build", gulp.series(clean, gulp.parallel(pages, styles, scripts, assets)));
 gulp.task("dev", gulp.series("build", "watch"));
