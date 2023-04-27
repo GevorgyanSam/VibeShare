@@ -13,7 +13,7 @@
     class User {
 
         public $Array, $Name, $LastName, $Email, $Login, $Password, $CPassword, $Code;
-        public $NameError, $LastNameError, $EmailError, $LoginError, $PasswordError, $CPasswordError;
+        public $NameError, $LastNameError, $EmailError, $LoginError, $PasswordError, $CPasswordError, $CodeError;
 
         function __construct($Array) {
 
@@ -84,11 +84,32 @@
                 if(!empty($this->Name) && !empty($this->LastName) && !empty($this->Email) && !empty($this->Login) && !empty($this->Password) && !empty($this->CPassword)) {
 
                     $_SESSION["Registration_Edit_State"] = 2;
-                    $_SESSION["Email_Address"] = $this->Email;
+                    $_SESSION["Name"] = $this->Name;
+                    $_SESSION["LastName"] = $this->LastName;
+                    $_SESSION["Email"] = $this->Email;
+                    $_SESSION["Login"] = $this->Login;
+                    $_SESSION["Password"] = $this->Password;
                     $CurrentPage = $_SERVER["PHP_SELF"];
+                    $this->SendVerificationCode();
                     header("Location: $CurrentPage");
 
                 }
+
+            }
+
+            if(isset($this->Array["verify"])) {
+
+                if(empty(trim($this->Array["code"]))) {
+                    $this->CodeError = "Enter The Code We Sent You By Email";
+                } else {
+                    $this->Code = $this->ValidateData($this->Array["code"]);
+                }
+
+            }
+
+            if(isset($this->Array["resend"])) {
+
+                $this->SendVerificationCode();
 
             }
 
@@ -99,6 +120,13 @@
             $Data = htmlspecialchars($Data);
             $Data = stripslashes($Data);
             return $Data;
+        }
+
+        private function SendVerificationCode() {
+
+            $Email = $_SESSION["Email"];
+            echo("<script>alert('Send Verification Code To $Email')</script>");
+
         }
 
     }

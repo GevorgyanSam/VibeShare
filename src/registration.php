@@ -136,16 +136,16 @@
                 <?php if($Edit_State == 2): ?>
                 <div class="secondStep">
                     <h2>Email Verification</h2>
-                    <h3>enter the verification code we send to <br> <span><?php echo($_SESSION["Email_Address"]); ?></span></h3>
+                    <h3>enter the verification code we send to <p><?php echo($_SESSION["Email"]); ?></p></h3>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="formParent">
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-envelope"></i>
-                                    <input type="number" placeholder="type code here" name="code">
+                                    <input type="number" placeholder="type code here" name="code" value="<?php echo($User->Code); ?>">
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($User->CodeError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem submitParent">
