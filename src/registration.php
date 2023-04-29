@@ -136,7 +136,7 @@
                 <?php if($Edit_State == 2): ?>
                 <div class="secondStep">
                     <h2>Email Verification</h2>
-                    <h3>enter the verification code we send to <p><?php echo($_SESSION["Email"]); ?></p></h3>
+                    <h3>enter the verification code we send to <p><?php echo($_SESSION["RegistrationData"]["Email"]); ?></p></h3>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="formParent">
                             <div class="formItem">

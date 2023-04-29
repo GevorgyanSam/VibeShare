@@ -4,10 +4,10 @@
     // Check What State The Page Is In
     // ----- ---- ----- --- ---- -- --
 
-    if(!isset($_SESSION["Registration_Edit_State"])) {
+    if(!isset($_SESSION["RegistrationData"])) {
         $Edit_State = 1;
     } else {
-        $Edit_State = $_SESSION["Registration_Edit_State"];
+        $Edit_State = $_SESSION["RegistrationData"]["EditState"];
     }
 
     class User {
@@ -83,12 +83,15 @@
 
                 if(!empty($this->Name) && !empty($this->LastName) && !empty($this->Email) && !empty($this->Login) && !empty($this->Password) && !empty($this->CPassword)) {
 
-                    $_SESSION["Registration_Edit_State"] = 2;
-                    $_SESSION["Name"] = $this->Name;
-                    $_SESSION["LastName"] = $this->LastName;
-                    $_SESSION["Email"] = $this->Email;
-                    $_SESSION["Login"] = $this->Login;
-                    $_SESSION["Password"] = $this->Password;
+                    $RegistrationData = [
+                        "EditState" => 2,
+                        "Name" => $this->Name,
+                        "LastName" => $this->LastName,
+                        "Email" => $this->Email,
+                        "Login" => $this->Login,
+                        "Password" => $this->Password
+                    ];
+                    $_SESSION["RegistrationData"] = $RegistrationData;
                     $CurrentPage = $_SERVER["PHP_SELF"];
                     $this->SendVerificationCode();
                     header("Location: $CurrentPage");
@@ -103,6 +106,15 @@
                     $this->CodeError = "Enter The Code We Sent You By Email";
                 } else {
                     $this->Code = $this->ValidateData($this->Array["code"]);
+                }
+
+                if(!empty($this->Code)) {
+                    if($_SESSION["RegistrationData"]["Code"] === $this->Code) {
+                        unset($_SESSION["RegistrationData"]);
+                        header("Location: ./index.php");
+                    } else {
+                        $this->CodeError = "Verification Failed. Incorrect Code";
+                    }
                 }
 
             }
@@ -124,8 +136,29 @@
 
         private function SendVerificationCode() {
 
-            $Email = $_SESSION["Email"];
-            echo("<script>alert('Send Verification Code To $Email')</script>");
+            $Code = "";
+            for($i = 1; $i <= 8; $i++) {
+                $Code .= rand(1, 9);
+            }
+            $_SESSION["RegistrationData"]["Code"] = $Code;
+
+            $Email = $_SESSION["RegistrationData"]["Email"];
+            $Name = $_SESSION["RegistrationData"]["Name"];
+            $Name = ucfirst($Name);
+            $LastName = $_SESSION["RegistrationData"]["LastName"];
+            $LastName = ucfirst($LastName);
+            $Subject = "VibeShare - Email Verification";
+            $Headers = [
+                "MIME-Version" => "1.0",
+                "Content-Type" => "text/html;charset=UTF-8",
+                "From" => "VibeShare@gmail.com",
+                "Reply-To" => "VibeShare@gmail.com"
+            ];
+            $Message = "Dear $Name $LastName, \r\n<br><br><br>";
+            $Message .= "Your New VibeShare Account Has Been Created. Welcome To The VibeShare. \r\n<br><br>";
+            $Message .= "Please Enter The Verification Code To Complete Your Registration. \r\n<br><br>";
+            $Message .= "Verification Code: $Code \r\n<br><br>";
+            $result = mail($Email, $Subject, $Message, $Headers);
 
         }
 
