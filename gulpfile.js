@@ -6,8 +6,6 @@ import gcmq from "gulp-group-css-media-queries";
 import autoPrefixer from "gulp-autoprefixer";
 import {deleteAsync} from "del";
 import uglify from "gulp-uglify";
-import transform from "gulp-es6-module-jstransform";
-import babel from "gulp-babel";
 
 const sass = gulpSass(dartSass);
 
@@ -30,10 +28,6 @@ async function styles() {
 async function scripts() {
 
     return gulp.src("./src/js/*.js")
-        .pipe(babel({
-            presets: ["@babel/env"]
-        }))
-        .pipe(transform())
         .pipe(uglify({
             toplevel: true
         }))

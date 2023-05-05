@@ -127,12 +127,20 @@
 
         }
 
+        // ---- -- - -------- ---- ------ --- -------- -- ---- ----
+        // This Is A Function That Checks The Security Of User Data
+        // ---- -- - -------- ---- ------ --- -------- -- ---- ----
+
         private function ValidateData($Data) {
             $Data = trim($Data);
             $Data = htmlspecialchars($Data);
             $Data = stripslashes($Data);
             return $Data;
         }
+
+        // ---- -- - -------- ---- ----- --- ------------ ---- -- --- ----
+        // This Is A Function That Sends The Verification Code To The User
+        // ---- -- - -------- ---- ----- --- ------------ ---- -- --- ----
 
         private function SendVerificationCode() {
 
