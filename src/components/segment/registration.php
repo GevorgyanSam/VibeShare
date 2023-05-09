@@ -10,6 +10,10 @@
         $Edit_State = $_SESSION["RegistrationData"]["EditState"];
     }
 
+    if(isset($_SESSION["UserData"])) {
+        header("Location: ./home.php");
+    }
+
     class User {
 
         public $Array, $Name, $LastName, $Email, $Login, $Password, $CPassword, $Code;
@@ -25,20 +29,20 @@
         // This Is A Function That Validates User Data
         // ---- -- - -------- ---- --------- ---- ----
 
-        public function ValidateUser() {
+        public function ValidateUser($db, $Encode) {
 
             if(isset($this->Array["register"])) {
 
                 if(empty(trim($this->Array["name"]))) {
                     $this->NameError = "Please Enter Your Name";
                 } else {
-                    $this->Name = $this->ValidateData($this->Array["name"]);
+                    $this->Name = strtolower($this->ValidateData($this->Array["name"]));
                 }
 
                 if(empty(trim($this->Array["lastname"]))) {
                     $this->LastNameError = "Please Enter Your Last Name";
                 } else {
-                    $this->LastName = $this->ValidateData($this->Array["lastname"]);
+                    $this->LastName = strtolower($this->ValidateData($this->Array["lastname"]));
                 }
 
                 if(empty(trim($this->Array["email"]))) {
@@ -47,7 +51,15 @@
                     if(!filter_var($this->Array["email"], FILTER_VALIDATE_EMAIL)) {
                         $this->EmailError = "Enter A Valid Email Address";
                     } else {
-                        $this->Email = $this->ValidateData($this->Array["email"]);
+                        $checkEmail = $db->prepare("SELECT * FROM `users` WHERE `email` IN (:email) AND `status` IN ('active')");
+                        $checkEmail->execute([
+                            "email" => "{$Encode->encrypt(strtolower($this->ValidateData($this->Array["email"])))}"
+                        ]);
+                        if($checkEmail->rowCount()) {
+                            $this->EmailError = "This Email Already Exists";
+                        } else {
+                            $this->Email = strtolower($this->ValidateData($this->Array["email"]));
+                        }
                     }
                 }
 
@@ -57,7 +69,15 @@
                     if(strlen($this->Array["login"]) < 3) {
                         $this->LoginError = "Minimum Number Of Symbols 2";
                     } else {
-                        $this->Login = $this->ValidateData($this->Array["login"]);
+                        $checkLogin = $db->prepare("SELECT * FROM `users` WHERE `login` IN (:login) AND `status` IN ('active')");
+                        $checkLogin->execute([
+                            "login" => "{$Encode->encrypt(strtolower($this->ValidateData($this->Array["login"])))}"
+                        ]);
+                        if($checkLogin->rowCount()) {
+                            $this->LoginError = "This Login Already Exists";
+                        } else {
+                            $this->Login = strtolower($this->ValidateData($this->Array["login"]));
+                        }
                     }
                 }
 
@@ -110,6 +130,31 @@
 
                 if(!empty($this->Code)) {
                     if($_SESSION["RegistrationData"]["Code"] === $this->Code) {
+                        $insert = $db->prepare("INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `login`, `password`, `status`) VALUES (NULL, :name, :last_name, :email, :login, :password, 'active')");
+                        $insert->execute([
+                            "name" => "{$Encode->encrypt($_SESSION["RegistrationData"]["Name"])}",
+                            "last_name" => "{$Encode->encrypt($_SESSION["RegistrationData"]["LastName"])}",
+                            "email" => "{$Encode->encrypt($_SESSION["RegistrationData"]["Email"])}",
+                            "login" => "{$Encode->encrypt($_SESSION["RegistrationData"]["Login"])}",
+                            "password" => "{$Encode->encrypt(md5($_SESSION["RegistrationData"]["Password"]))}"
+                        ]);
+                        $UserId = $db->lastInsertId();
+                        $UserIp = $_SERVER["REMOTE_ADDR"];
+                        $UserAgent = $_SERVER["HTTP_USER_AGENT"];
+                        $insert_registration_info = $db->prepare("INSERT INTO `registration_info` (`id`, `user_id`, `remote_addr`, `user_agent`, `date`, `status`) VALUES (NULL, :user_id, :user_ip, :user_agent, NULL, 'active')");
+                        $insert_registration_info->execute([
+                            "user_id" => "{$Encode->encrypt($UserId)}",
+                            "user_ip" => "{$Encode->encrypt($UserIp)}",
+                            "user_agent" => "{$Encode->encrypt($UserAgent)}"
+                        ]);
+                        $UserData = [
+                            "Id" => "$UserId",
+                            "Name" => $_SESSION["RegistrationData"]["Name"],
+                            "LastName" => $_SESSION["RegistrationData"]["LastName"],
+                            "Email" => $_SESSION["RegistrationData"]["Email"],
+                            "Login" => $_SESSION["RegistrationData"]["Login"],
+                        ];
+                        $_SESSION["UserData"] = $UserData;
                         unset($_SESSION["RegistrationData"]);
                         header("Location: ./index.php");
                     } else {
@@ -173,6 +218,6 @@
     }
 
     $User = new User($_POST);
-    $User->ValidateUser();
+    $User->ValidateUser($db, $Encode);
 
 ?>

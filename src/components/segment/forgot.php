@@ -4,6 +4,10 @@
         unset($_SESSION["RegistrationData"]);
     }
 
+    if(isset($_SESSION["UserData"])) {
+        header("Location: ./home.php");
+    }
+
     if(!isset($_SESSION["Forgot_Edit_State"])) {
         $Edit_State = 1;
     } else {

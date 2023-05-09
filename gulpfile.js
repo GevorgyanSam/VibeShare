@@ -49,6 +49,13 @@ async function assets() {
 
 }
 
+async function databases() {
+
+    return gulp.src("./src/**/**/*.sql")
+        .pipe(gulp.dest("./build"))
+
+}
+
 async function clean() {
 
     return deleteAsync(["./build/**/**/*.php", "./build/css/", "./build/js/", "./build/components/", "./build/assets/"])
@@ -58,11 +65,12 @@ async function clean() {
 async function watch() {
 
     gulp.watch("./src/**/**/*.php", pages);
+    gulp.watch("./src/**/**/*.sql", databases);
     gulp.watch("./src/scss/**/*.scss", styles);
     gulp.watch("./src/js/*.js", scripts);
 
 }
 
 gulp.task("watch", watch);
-gulp.task("build", gulp.series(clean, gulp.parallel(pages, styles, scripts, assets)));
+gulp.task("build", gulp.series(clean, gulp.parallel(pages, styles, scripts, assets, databases)));
 gulp.task("dev", gulp.series("build", "watch"));
