@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 12, 2023 at 03:01 PM
+-- Generation Time: May 12, 2023 at 09:46 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -68,6 +68,19 @@ CREATE TABLE `users` (
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_info`
+--
+
+CREATE TABLE `user_info` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `profile_image` text NOT NULL,
+  `profile_background_image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -91,6 +104,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_info`
+--
+ALTER TABLE `user_info`
+  ADD PRIMARY KEY (`id`,`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -110,6 +129,12 @@ ALTER TABLE `registration_info`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user_info`
+--
+ALTER TABLE `user_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

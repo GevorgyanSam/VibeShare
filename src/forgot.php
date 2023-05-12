@@ -87,9 +87,21 @@
                 <?php if($Edit_State == 2): ?>
                 <div class="secondStep">
                     <div class="profileParent">
-                        <div class="userBackgroundParent" style="background-image: url(https://imgs.search.brave.com/wv9bhyYa5CjPXwNsGPW3NAGO95tX6iS11Kjb-3sUVk4/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/Z29vZGZyZWVwaG90/b3MuY29tL2FsYnVt/cy9jcm9hdGlhL3Bs/aXR2aWNlLWxha2Vz/LW5hdGlvbmFsLXBh/cmsvbGFrZS1sYW5k/c2NhcGUtdW5kZXIt/c2tpZXMtcGxpdHZp/Y2UtbGFrZS1uYXRp/b25hbC1wYXJrLWNy/b2F0aWEuanBn);"></div>
+                        <?php
+                            if($_SESSION["ForgotData"]["UserBackgroundImage"] == "default") {
+                                echo('<div class="userBackgroundParent"></div>');
+                            } else {
+                                echo('<div class="userBackgroundParent" style="background-image: url(./uploads/' . $_SESSION["ForgotData"]["UserBackgroundImage"] . ');"></div>');
+                            }
+                        ?>
                         <div class="userLogoParent">
-                            <img src="./assets/defaultuser.jpg">
+                        <?php
+                            if($_SESSION["ForgotData"]["UserImage"] == "default") {
+                                echo('<img src="./assets/defaultuser.jpg">');
+                            } else {
+                                echo('<img src="./uploads/' . $_SESSION["ForgotData"]["UserImage"] . '">');
+                            }
+                        ?>
                         </div>
                         <div class="userInfoParent">
                             <h2><?php echo($_SESSION["ForgotData"]["Name"] . " " . $_SESSION["ForgotData"]["LastName"]); ?></h2>
@@ -116,7 +128,7 @@
                 <?php if($Edit_State == 3): ?>
                 <div class="thirdStep">
                     <h2>Email Verification</h2>
-                    <h3>enter the verification code we send to <br> <span>t**t@gmail.com</span></h3>
+                    <h3>enter the verification code we send to <br> <span><?php echo($_SESSION["ForgotData"]["Email"]); ?></span></h3>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="formParent">
                             <div class="formItem">

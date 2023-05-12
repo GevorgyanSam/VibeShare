@@ -16,7 +16,7 @@
 
     class FindUser {
 
-        public $Array, $SearchUser, $UserImage;
+        public $Array, $SearchUser, $UserImage, $UserBackgroundImage;
         public $SearchUserError;
 
         public function __construct($Array) {
@@ -44,12 +44,24 @@
                     ]);
                     if($search->rowCount()) {
                         $UserInfo = $search->fetch();
+                        $getProfile = $db->query("SELECT `profile_image`, `profile_background_image` FROM `user_info` WHERE `user_id` IN ('{$UserInfo["id"]}')");
+                        if($getProfile->rowCount()) {
+                            $getProfileData = $getProfile->fetch();
+                            $this->UserImage = $Encode->decrypt($getProfileData["profile_image"]);
+                            $this->UserBackgroundImage = $Encode->decrypt($getProfileData["profile_background_image"]);
+                        } else {
+                            $this->UserImage = "default";
+                            $this->UserBackgroundImage = "default";
+                        }
                         $ForgotData = [
+                            "Id" => "{$UserInfo["id"]}",
                             "Name" => "{$Encode->decrypt($UserInfo["name"])}",
                             "LastName" => "{$Encode->decrypt($UserInfo["last_name"])}",
                             "Email" => "{$Encode->decrypt($UserInfo["email"])}",
                             "Login" => "{$Encode->decrypt($UserInfo["login"])}",
                             "Password" => "{$Encode->decrypt($UserInfo["password"])}",
+                            "UserImage" => "{$this->UserImage}",
+                            "UserBackgroundImage" => "{$this->UserBackgroundImage}",
                             "EditState" => 2,
                         ];
                         $_SESSION["ForgotData"] = $ForgotData;
