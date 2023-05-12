@@ -64,14 +64,14 @@
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-magnifying-glass"></i>
-                                    <input type="text" placeholder="Login Or Email">
+                                    <input type="text" placeholder="Login Or Email" name="searchUser" value="<?php echo($FindUser->SearchUser); ?>">
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($FindUser->SearchUserError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem submitParent">
-                                <button type="submit">Search</button>
+                                <button type="submit" name="submitSearchUser">Search</button>
                             </div>
                         </div>
                     </form>
@@ -89,18 +89,18 @@
                     <div class="profileParent">
                         <div class="userBackgroundParent" style="background-image: url(https://imgs.search.brave.com/wv9bhyYa5CjPXwNsGPW3NAGO95tX6iS11Kjb-3sUVk4/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/Z29vZGZyZWVwaG90/b3MuY29tL2FsYnVt/cy9jcm9hdGlhL3Bs/aXR2aWNlLWxha2Vz/LW5hdGlvbmFsLXBh/cmsvbGFrZS1sYW5k/c2NhcGUtdW5kZXIt/c2tpZXMtcGxpdHZp/Y2UtbGFrZS1uYXRp/b25hbC1wYXJrLWNy/b2F0aWEuanBn);"></div>
                         <div class="userLogoParent">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80">
+                            <img src="./assets/defaultuser.jpg">
                         </div>
                         <div class="userInfoParent">
-                            <h2>Maria Ashley</h2>
+                            <h2><?php echo($_SESSION["ForgotData"]["Name"] . " " . $_SESSION["ForgotData"]["LastName"]); ?></h2>
                         </div>
                         <div class="questionParent">
                             <h1>it's you ?</h1>
                         </div>
                         <div class="formParent">
                             <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" method="POST">
-                                <button type="submit" id="cancel">cancel</button>
-                                <button type="submit" id="continue">continue</button>
+                                <button type="submit" id="cancel" name="cancelFoundUser">cancel</button>
+                                <button type="submit" id="continue" name="continueFoundUser">continue</button>
                             </form>
                         </div>
                     </div>

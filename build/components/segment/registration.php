@@ -14,6 +14,10 @@
         header("Location: ./home.php");
     }
 
+    if(isset($_SESSION["ForgotData"])) {
+        unset($_SESSION["ForgotData"]);
+    }
+
     class User {
 
         public $Array, $Name, $LastName, $Email, $Login, $Password, $CPassword, $Code;
@@ -51,7 +55,8 @@
                     if(!filter_var($this->Array["email"], FILTER_VALIDATE_EMAIL)) {
                         $this->EmailError = "Enter A Valid Email Address";
                     } else {
-                        $checkEmail = $db->prepare("SELECT * FROM `users` WHERE `email` IN (:email) AND `status` IN ('active')");
+                        $ActiveHash = $Encode->encrypt('active');
+                        $checkEmail = $db->prepare("SELECT * FROM `users` WHERE `email` IN (:email) AND `status` IN ('$ActiveHash')");
                         $checkEmail->execute([
                             "email" => "{$Encode->encrypt(strtolower($this->ValidateData($this->Array["email"])))}"
                         ]);
@@ -67,9 +72,10 @@
                     $this->LoginError = "Please Enter Login";
                 } else {
                     if(strlen($this->Array["login"]) < 3) {
-                        $this->LoginError = "Minimum Number Of Symbols 2";
+                        $this->LoginError = "Minimum Number Of Symbols 3";
                     } else {
-                        $checkLogin = $db->prepare("SELECT * FROM `users` WHERE `login` IN (:login) AND `status` IN ('active')");
+                        $ActiveHash = $Encode->encrypt('active');
+                        $checkLogin = $db->prepare("SELECT * FROM `users` WHERE `login` IN (:login) AND `status` IN ('$ActiveHash')");
                         $checkLogin->execute([
                             "login" => "{$Encode->encrypt(strtolower($this->ValidateData($this->Array["login"])))}"
                         ]);
@@ -130,22 +136,24 @@
 
                 if(!empty($this->Code)) {
                     if($_SESSION["RegistrationData"]["Code"] === $this->Code) {
-                        $insert = $db->prepare("INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `login`, `password`, `status`) VALUES (NULL, :name, :last_name, :email, :login, :password, 'active')");
+                        $insert = $db->prepare("INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `login`, `password`, `status`) VALUES (NULL, :name, :last_name, :email, :login, :password, :status)");
                         $insert->execute([
                             "name" => "{$Encode->encrypt($_SESSION["RegistrationData"]["Name"])}",
                             "last_name" => "{$Encode->encrypt($_SESSION["RegistrationData"]["LastName"])}",
                             "email" => "{$Encode->encrypt($_SESSION["RegistrationData"]["Email"])}",
                             "login" => "{$Encode->encrypt($_SESSION["RegistrationData"]["Login"])}",
-                            "password" => "{$Encode->encrypt(md5($_SESSION["RegistrationData"]["Password"]))}"
+                            "password" => "{$Encode->encrypt(md5($_SESSION["RegistrationData"]["Password"]))}",
+                            "status" => "{$Encode->encrypt("active")}",
                         ]);
                         $UserId = $db->lastInsertId();
                         $UserIp = $_SERVER["REMOTE_ADDR"];
                         $UserAgent = $_SERVER["HTTP_USER_AGENT"];
-                        $insert_registration_info = $db->prepare("INSERT INTO `registration_info` (`id`, `user_id`, `remote_addr`, `user_agent`, `date`, `status`) VALUES (NULL, :user_id, :user_ip, :user_agent, NULL, 'active')");
+                        $insert_registration_info = $db->prepare("INSERT INTO `registration_info` (`id`, `user_id`, `remote_addr`, `user_agent`, `date`, `status`) VALUES (NULL, :user_id, :user_ip, :user_agent, NULL, :status)");
                         $insert_registration_info->execute([
                             "user_id" => "{$Encode->encrypt($UserId)}",
                             "user_ip" => "{$Encode->encrypt($UserIp)}",
-                            "user_agent" => "{$Encode->encrypt($UserAgent)}"
+                            "user_agent" => "{$Encode->encrypt($UserAgent)}",
+                            "status" => "{$Encode->encrypt("active")}",
                         ]);
                         $UserData = [
                             "Id" => "$UserId",
@@ -153,10 +161,11 @@
                             "LastName" => $_SESSION["RegistrationData"]["LastName"],
                             "Email" => $_SESSION["RegistrationData"]["Email"],
                             "Login" => $_SESSION["RegistrationData"]["Login"],
+                            "Sourse" => $_SERVER["PHP_SELF"]
                         ];
                         $_SESSION["UserData"] = $UserData;
                         unset($_SESSION["RegistrationData"]);
-                        header("Location: ./index.php");
+                        header("Location: ./home.php");
                     } else {
                         $this->CodeError = "Verification Failed. Incorrect Code";
                     }

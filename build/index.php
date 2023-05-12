@@ -53,36 +53,37 @@
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="loginParent">
                             <i class="fa-solid fa-user inputIcon"></i>
-                            <input type="text" id="login" placeholder="Login">
+                            <input type="text" id="login" placeholder="Login Or Email" name="login" value="<?php echo($User->Login); ?>">
                         </div>
                         <div class="errorParent">
-                            <label for="login" class="error"></label>
+                            <label for="login" class="error"><?php echo($User->LoginError); ?></label>
                         </div>
                         <div class="passwordParent">
                             <i class="fa-solid fa-lock inputIcon"></i>
-                            <input type="password" id="password" placeholder="Password">
+                            <input type="password" id="password" placeholder="Password" name="password" value="<?php echo($User->Password); ?>">
                             <i class="fa-solid fa-eye-slash passwordView"></i>
                         </div>
                         <div class="errorParent">
-                            <label for="password" class="error"></label>
+                            <label for="password" class="error"><?php echo($User->PasswordError); ?></label>
                         </div>
                         <div class="rememberParent">
                             <div class="rememberMe">
-                                <input type="checkbox" id="checkbox">
+                                <input type="checkbox" id="checkbox" name="remember">
                                 <label for="checkbox">Remember Me</label>
                             </div>
                             <div class="forgotParent">
-                                <button type="submit">Forgot Your Password ?</button>
+                                <button type="submit" name="submit" style="display: none;">Login</button>
+                                <button type="submit" name="forgot">Forgot Your Password ?</button>
                             </div>
                         </div>
                         <div class="submitParent">
-                            <button type="submit">Login</button>
+                            <button type="submit" name="submit">Login</button>
                         </div>
                         <div class="registrationParent">
                             <a href="./registration.php">don't have an account ? <span>register</span></a>
                         </div>
                         <div class="mobileForgotParent">
-                            <button type="submit">Forgot Your Password ?</button>
+                            <button type="submit" name="forgot">Forgot Your Password ?</button>
                         </div>
                     </form>
                 </div>

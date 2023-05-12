@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 09, 2023 at 03:06 PM
+-- Generation Time: May 12, 2023 at 03:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -33,6 +33,7 @@ CREATE TABLE `login_info` (
   `remote_addr` text NOT NULL,
   `user_agent` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `remember` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
