@@ -156,7 +156,6 @@
                             "LastName" => "{$Encode->decrypt($row["last_name"])}",
                             "Email" => "{$Encode->decrypt($row["email"])}",
                             "Login" => "{$Encode->decrypt($row["login"])}",
-                            "Password" => "{$Encode->decrypt($row["password"])}",
                             "UserImage" => "{$this->UserImage}",
                             "UserBackgroundImage" => "{$this->UserBackgroundImage}",
                             "EditState" => 2,

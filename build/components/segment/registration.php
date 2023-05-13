@@ -220,6 +220,9 @@
             $Message .= "Your New VibeShare Account Has Been Created. Welcome To The VibeShare. \r\n<br><br>";
             $Message .= "Please Enter The Verification Code To Complete Your Registration. \r\n<br><br>";
             $Message .= "Verification Code: $Code \r\n<br><br>";
+            $Message .= "Thank You For Choosing Our Services. \r\n<br><br>";
+            $Message .= "Best regards, \r\n<br><br>";
+            $Message .= "VibeShare \r\n<br><br>";
             $result = mail($Email, $Subject, $Message, $Headers);
 
         }

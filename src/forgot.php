@@ -128,16 +128,16 @@
                 <?php if($Edit_State == 3): ?>
                 <div class="thirdStep">
                     <h2>Email Verification</h2>
-                    <h3>enter the verification code we send to <br> <span><?php echo($_SESSION["ForgotData"]["Email"]); ?></span></h3>
+                    <h3>enter the verification code we send to <br> <span><?php echo($FindUser->HideEmail($_SESSION["ForgotData"]["Email"])); ?></span></h3>
                     <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"])); ?>" autocomplete="off" method="POST">
                         <div class="formParent">
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-envelope"></i>
-                                    <input type="number" placeholder="type code here">
+                                    <input type="number" placeholder="type code here" name="code" value="<?php echo($FindUser->Code); ?>">
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($FindUser->CodeError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem submitParent">
@@ -173,25 +173,25 @@
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-lock"></i>
-                                    <input type="password" id="password" placeholder="New Password">
+                                    <input type="password" id="password" placeholder="New Password" name="npassword" value="<?php echo($FindUser->NPassword); ?>">
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($FindUser->NPasswordError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem">
                                 <div class="dateParent">
                                     <i class="fa-solid fa-key"></i>
-                                    <input type="password" id="cpassword" placeholder="Confirm Password">
+                                    <input type="password" id="cpassword" placeholder="Confirm Password" name="cpassword" value="<?php echo($FindUser->CPassword); ?>">
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
                                 <div class="errorParent">
-                                    <label class="error"></label>
+                                    <label class="error"><?php echo($FindUser->CPasswordError); ?></label>
                                 </div>
                             </div>
                             <div class="formItem submitParent">
-                                <button type="submit">change password</button>
+                                <button type="submit" name="change">change password</button>
                             </div>
                         </div>
                     </form>
