@@ -150,7 +150,7 @@
                         $UserAgent = $_SERVER["HTTP_USER_AGENT"];
                         $insert_registration_info = $db->prepare("INSERT INTO `registration_info` (`id`, `user_id`, `remote_addr`, `user_agent`, `date`, `status`) VALUES (NULL, :user_id, :user_ip, :user_agent, NULL, :status)");
                         $insert_registration_info->execute([
-                            "user_id" => "{$Encode->encrypt($UserId)}",
+                            "user_id" => "{$UserId}",
                             "user_ip" => "{$Encode->encrypt($UserIp)}",
                             "user_agent" => "{$Encode->encrypt($UserAgent)}",
                             "status" => "{$Encode->encrypt("active")}",

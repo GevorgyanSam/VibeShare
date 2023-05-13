@@ -67,9 +67,10 @@
 
                 if(!empty($this->Login) && !empty($this->Password)) {
 
-                    $check = $db->prepare("SELECT * FROM `users` WHERE `login` IN (:login) OR `email` IN (:login)");
+                    $check = $db->prepare("SELECT * FROM `users` WHERE `login` IN (:login) OR `email` IN (:login) AND `status` IN (:status)");
                     $check->execute([
                         "login" => $Encode->encrypt(strtolower($this->Login)),
+                        "status" => "{$Encode->encrypt("active")}",
                     ]);
                     $read = $check->fetch();
                     $UserId = $read["id"];
@@ -81,19 +82,19 @@
                         $update_registration_table = $db->prepare("UPDATE `registration_info` SET `status` = :status WHERE `user_id` = :id");
                         $update_registration_table->execute([
                             "status" => "{$Encode->encrypt("inactive")}",
-                            "id" => "{$Encode->encrypt("$UserId")}",
+                            "id" => "{$UserId}",
                         ]);
                         $update_login_table = $db->prepare("UPDATE `login_info` SET `status` = :status WHERE `user_id` = :id");
                         $update_login_table->execute([
                             "status" => "{$Encode->encrypt("inactive")}",
-                            "id" => "{$Encode->encrypt("$UserId")}",
+                            "id" => "{$UserId}",
                         ]);
                         $insert = $db->prepare("INSERT INTO `login_info` (`id`, `user_id`, `remote_addr`, `user_agent`, `date`, `remember`, `status`) VALUES (NULL, :user_id, :remote_addr, :user_agent, NULL, :remember, :status)");
                         $UserIp = $_SERVER["REMOTE_ADDR"];
                         $UserAgent = $_SERVER["HTTP_USER_AGENT"];
                         if($this->Remember) {
                             $insert->execute([
-                                "user_id" => "{$Encode->encrypt("$UserId")}",
+                                "user_id" => "{$UserId}",
                                 "remote_addr" => "{$Encode->encrypt($UserIp)}",
                                 "user_agent" => "{$Encode->encrypt($UserAgent)}",
                                 "status" => "{$Encode->encrypt("active")}",
@@ -101,7 +102,7 @@
                             ]);
                         } else {
                             $insert->execute([
-                                "user_id" => "{$Encode->encrypt("$UserId")}",
+                                "user_id" => "{$UserId}",
                                 "remote_addr" => "{$Encode->encrypt($UserIp)}",
                                 "user_agent" => "{$Encode->encrypt($UserAgent)}",
                                 "status" => "{$Encode->encrypt("active")}",
@@ -182,9 +183,70 @@
             return $Data;
         }
 
+        // ---- -------- ------ ---- ---- ---- -------- -- ---
+        // This Function Checks That User Need Password Or Not
+        // ---- -------- ------ ---- ---- ---- -------- -- ---
+
+        public function UserAuth($db, $Encode) {
+
+            $AuthUserIp = $Encode->encrypt($_SERVER["REMOTE_ADDR"]);
+            $AuthUserAgent = $Encode->encrypt($_SERVER["HTTP_USER_AGENT"]);
+            $AuthRemember = $Encode->encrypt("true");
+            $AuthCheck = $db->prepare("SELECT * FROM `login_info` WHERE `remember` IN (:remember) AND `remote_addr` IN (:user_ip) AND `user_agent` IN (:user_agent)");
+            $AuthCheck->execute([
+                "remember" => "{$AuthRemember}",
+                "user_ip" => "{$AuthUserIp}",
+                "user_agent" => "{$AuthUserAgent}"
+            ]);
+            if($AuthCheck->rowCount()) {
+                $AuthRead = $AuthCheck->fetch();
+                $AuthUserId = $AuthRead["user_id"];
+                $AuthReady = $db->prepare("SELECT * FROM `users` WHERE `status` IN (:status) AND `id` IN (:id)");
+                $AuthReady->execute([
+                    "status" => "{$Encode->encrypt("active")}",
+                    "id" => "{$AuthUserId}",
+                ]);
+                if($AuthReady->rowCount()) {
+                    $AuthReadyRead = $AuthReady->fetch();
+                    $AuthUserId = $AuthReadyRead["id"];
+                    $AuthUserName = $AuthReadyRead["name"];
+                    $AuthUserLastName = $AuthReadyRead["last_name"];
+                    $AuthUserEmail = $AuthReadyRead["email"];
+                    $AuthUserLogin = $AuthReadyRead["login"];
+                    $UserData = [
+                        "Id" => "$AuthUserId",
+                        "Name" => $Encode->decrypt($AuthUserName),
+                        "LastName" => $Encode->decrypt($AuthUserLastName),
+                        "Email" => $Encode->decrypt($AuthUserEmail),
+                        "Login" => $Encode->decrypt($AuthUserLogin),
+                        "Sourse" => $_SERVER["PHP_SELF"]
+                    ];
+                    "UPDATE `login_info` SET `remember` = 'true', `status` = 'inactive' WHERE AND `user_id` = 1";
+                    $update_login_table = $db->prepare("UPDATE `login_info` SET `status` = :status, `remember` = :remember WHERE `user_id` = :id");
+                    $update_login_table->execute([
+                        "status" => "{$Encode->encrypt("inactive")}",
+                        "remember" => "{$Encode->encrypt("false")}",
+                        "id" => "{$AuthUserId}",
+                    ]);
+                    $insert_login_table = $db->prepare("INSERT INTO `login_info` (`id`, `user_id`, `remote_addr`, `user_agent`, `date`, `remember`, `status`) VALUES (NULL, :user_id, :remote_addr, :user_agent, NULL, :remember, :status)");
+                    $insert_login_table->execute([
+                        "user_id" => "{$AuthUserId}",
+                        "remote_addr" => "{$AuthUserIp}",
+                        "user_agent" => "{$AuthUserAgent}",
+                        "status" => "{$Encode->encrypt("active")}",
+                        "remember" => "{$Encode->encrypt("true")}",
+                    ]);
+                    $_SESSION["UserData"] = $UserData;
+                    header("Location: ./home.php");
+                }
+            }
+
+        }
+
     }
 
     $User = new User($_POST);
+    $User->UserAuth($db, $Encode);
     $User->ValidateUser($db, $Encode);
 
 ?>
