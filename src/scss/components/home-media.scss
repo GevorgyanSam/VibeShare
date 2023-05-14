@@ -1,0 +1,101 @@
+@media only screen and (max-width: 1200px) {
+
+    .navParent {
+        height: 60px !important;
+
+        .logoParent .logo a {
+            font-size: 30px !important;
+        }
+
+        .userParent {
+            a {
+                > div:last-child {
+                    height: 40px !important;
+                    width: 40px !important;
+                }
+
+                h3 {
+                    font-size: 19px !important;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    .navParent {
+
+        .logoParent .logo a {
+            font-size: 25px !important;
+        }
+
+        .userParent {
+            a {
+                > div:last-child {
+                    height: 40px !important;
+                    width: 40px !important;
+                }
+
+                h3 {
+                    font-size: 18px !important;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .navParent {
+
+        > div {
+            margin: 0 20px !important;
+        }
+
+        .logoParent .logo a {
+            font-size: 23px !important;
+        }
+
+        .userParent {
+            a {
+                > div:last-child {
+                    height: 40px !important;
+                    width: 40px !important;
+                }
+
+                h3 {
+                    font-size: 17px !important;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+
+    .navParent {
+        height: 50px !important;
+
+        .logoParent .logo a {
+            font-size: 20px !important;
+        }
+
+        .userParent {
+            a {
+                > div:last-child {
+                    height: 35px !important;
+                    width: 35px !important;
+                }
+
+                h3 {
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+
+}
